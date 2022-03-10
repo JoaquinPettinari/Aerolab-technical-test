@@ -19,6 +19,7 @@ export interface PaginationProps {
 export interface OptionsCategoriesProps {
    changeCategory: (event: React.FormEvent<HTMLSelectElement>) => void;
    categories: string[];
+   categoryFilter: string;
 }
 
 export interface ProductButtonProps {
@@ -28,6 +29,12 @@ export interface ProductButtonProps {
 export interface AerolabTextProps {
    children?: number | string;
    fontSize?: number;
+   grayText?: boolean;
+}
+
+export interface OrderProductsProps {
+   changeOrder: (order: string) => void;
+   sortedBy: string;
 }
 
 export interface IconsButtonProp {

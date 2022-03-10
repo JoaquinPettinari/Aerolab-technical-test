@@ -1,3 +1,5 @@
+export { ProductCard } from "./ProductCard/ProductCard";
+export { OrderProducts } from "./OrderProducts/OrderProducts";
 export { OptionsCategories } from "./OptionsCategories/OptionsCategories";
 export { Pagination } from "./Pagination/Pagination";
 export { ProductButton } from "./ProductButton/ProductButton";

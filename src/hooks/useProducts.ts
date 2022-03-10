@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { getProducts } from "../utils/fetchData";
 import { uniq, drop, take, sort, toLower, prop, compose, filter } from "ramda";
 import { Product } from "../interfaces";
+import { SelectChangeEvent } from "@mui/material";
 
 const defaultProduct = [
    {
@@ -11,12 +12,12 @@ const defaultProduct = [
       name: "",
    },
 ];
-const pageSize = 9;
+const pageSize = 8;
 function useProducts() {
    const [categories, setCategories] = useState([]);
    const [products, setProducts] = useState<Product[]>(defaultProduct);
-   const [categoryFilter, setCategoryFilter] = useState("All products");
-   const [sortedBy, setSortedBy] = useState("");
+   const [categoryFilter, setCategoryFilter] = useState<string>("All products");
+   const [sortedBy, setSortedBy] = useState("Highest price");
    const [currentPage, setCurrentPage] = useState(1);
    const [isLoading, setIsLoading] = useState(true);
 
@@ -80,6 +81,7 @@ function useProducts() {
       changeOrder,
       changePage,
       isLoading,
+      sortedBy,
    };
 }
 
