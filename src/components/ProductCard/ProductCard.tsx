@@ -1,9 +1,23 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { ProductButton } from "..";
 import { Product } from "../../interfaces";
 
+const useStyles = makeStyles({
+    nameStyle: {
+        color: '#252F3D',
+        fontSize: '18px',
+        fontWeight: '600'
+    },
+    categoryStyle: {
+        color: '#7C899C',
+        fontSize: '14px'
+    }
+})
+
 function ProductCard(props: Product) {
     const { img, name, category, cost } = props
+    const { nameStyle, categoryStyle } = useStyles()
     return (
         <Grid item xs={12} sm={6} md={4} lg={3}>
             <Card >
@@ -14,10 +28,10 @@ function ProductCard(props: Product) {
                     alt={name}
                 />
                 <CardContent>
-                    <Typography>
+                    <Typography className={nameStyle}>
                         {name}
                     </Typography>
-                    <Typography>
+                    <Typography className={categoryStyle}>
                         {category}
                     </Typography>
                 </CardContent>
