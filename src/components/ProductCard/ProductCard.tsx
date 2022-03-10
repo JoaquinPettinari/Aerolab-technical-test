@@ -42,7 +42,7 @@ function ProductCard(props: Product) {
                     </Typography>
                 </CardContent>
             </Card>
-            <ProductButton cost={cost} id={_id} />
+            <ProductButton cost={cost} id={_id} name={name} />
         </Grid>
     )
 }

@@ -24,13 +24,13 @@ const useStyles = makeStyles({
 });
 
 function ProductButton(props: ProductButtonProps) {
-    const { cost, id } = props
+    const { cost, id, name } = props
     const { button, disabledButton, img } = useStyles()
     const { coins, buyProduct, redeemProduct } = useContext(HomePageContext)
     const isDisabled = cost > coins
 
     const setPurchase = () => {
-        buyProduct(cost, id, redeemProduct)
+        buyProduct(cost, id, name, redeemProduct)
     }
 
     return (
@@ -42,7 +42,7 @@ function ProductButton(props: ProductButtonProps) {
                     className={button}
                     onClick={setPurchase}
                 >
-                    Reedem for
+                    Redeem for
                     <img src={KateIcon} alt="Icon" className={img} />
                     {cost}
                 </Button>

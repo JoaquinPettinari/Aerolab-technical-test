@@ -29,7 +29,7 @@ export const setNewCoins = (amount: number) => {
 };
 
 export const claimProduct = (id: string) => {
-   const url = `${basicUrl}/redeem`;
+   const url = `${basicUrl}/redeem/asdsadsa`;
    const body = {
       productId: id,
    };

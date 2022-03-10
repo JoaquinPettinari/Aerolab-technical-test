@@ -1,8 +1,17 @@
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import { getProducts } from "../utils/fetchData";
-import { uniq, drop, take, sort, toLower, prop, compose, filter } from "ramda";
-import { Product } from "../interfaces";
-import { SelectChangeEvent } from "@mui/material";
+import {
+   uniq,
+   drop,
+   take,
+   sort,
+   toLower,
+   prop,
+   compose,
+   filter,
+   isEmpty,
+} from "ramda";
+import { Product, SnackerDataProps } from "../interfaces";
 
 const defaultProduct = [
    {
@@ -13,6 +22,8 @@ const defaultProduct = [
       _id: "",
    },
 ];
+
+const defaultSnacker = { show: false, success: false, name: "" };
 const pageSize = 8;
 function useProducts() {
    const [categories, setCategories] = useState([]);
@@ -21,6 +32,8 @@ function useProducts() {
    const [sortedBy, setSortedBy] = useState("Highest price");
    const [currentPage, setCurrentPage] = useState(1);
    const [isLoading, setIsLoading] = useState(true);
+   const [snackerData, setSnackerData] =
+      useState<SnackerDataProps>(defaultSnacker);
 
    useEffect(() => {
       getProducts().then(res => {
@@ -55,9 +68,25 @@ function useProducts() {
       }
    };
 
-   const redeemProduct = (id: string) => {
-      const newProductsList = products.filter(prod => prod._id !== id);
-      setProducts(newProductsList);
+   const handleCloseSnacker = (
+      event?: React.SyntheticEvent | Event,
+      reason?: string
+   ) => {
+      if (reason === "clickaway") {
+         return;
+      }
+
+      setSnackerData({ ...snackerData, show: false });
+   };
+
+   const redeemProduct = (id: string, name: string) => {
+      if (isEmpty(id)) {
+         setSnackerData({ show: true, success: false, name: "" });
+      } else {
+         const newProductsList = products.filter(prod => prod._id !== id);
+         setProducts(newProductsList);
+         setSnackerData({ show: true, success: true, name });
+      }
    };
 
    const isSameCategory = (it: Product) =>
@@ -89,6 +118,8 @@ function useProducts() {
       isLoading,
       sortedBy,
       redeemProduct,
+      handleCloseSnacker,
+      snackerData,
    };
 }
 

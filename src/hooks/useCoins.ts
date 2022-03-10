@@ -18,12 +18,15 @@ function useCoins() {
    const buyProduct = (
       mount: number,
       id: string,
-      callback: (id: string) => void
+      name: string,
+      callback: (id: string, name: string) => void
    ) => {
-      setCoins(prev => prev - mount);
       claimProduct(id)
-         .then(res => callback(id))
-         .catch(err => callback(""));
+         .then(res => {
+            setCoins(prev => prev - mount);
+            callback(id, name);
+         })
+         .catch(err => callback("", ""));
    };
 
    const addCoints = (mount: number) => {

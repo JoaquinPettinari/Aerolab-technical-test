@@ -1,3 +1,4 @@
+export { Snackbar } from "./Snackbar/Snackbar";
 export { CreditCard } from "./CreditCard/CreditCard";
 export { AerolabButton } from "./AerolabButton/AerolabButton";
 export { PopoverContent } from "./PopoverContent/PopoverContent";

@@ -4,7 +4,8 @@ export interface HomePageContextProps {
    buyProduct: (
       mount: number,
       id: string,
-      callback: (id: string) => void
+      name: string,
+      callback: (id: string, name: string) => void
    ) => void;
    name: string;
    isLoading: boolean;
@@ -17,7 +18,12 @@ export interface HomePageContextProps {
    changeOrder: (order: string) => void;
    changePage: (page: number) => void;
    sortedBy: string;
-   redeemProduct: (id: string) => void;
+   redeemProduct: (id: string, name: string) => void;
+   handleCloseSnacker: (
+      event?: React.SyntheticEvent | Event,
+      reason?: string
+   ) => void;
+   snackerData: SnackerDataProps;
 }
 
 export interface Product {
@@ -42,6 +48,7 @@ export interface OptionsCategoriesProps {
 export interface ProductButtonProps {
    cost: number;
    id: string;
+   name: string;
 }
 
 export interface AerolabTextProps {
@@ -65,4 +72,10 @@ export interface AerolabButtonProps {
 export interface IconsButtonProp {
    coins: number;
    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface SnackerDataProps {
+   show: boolean;
+   success: boolean;
+   name: string;
 }
