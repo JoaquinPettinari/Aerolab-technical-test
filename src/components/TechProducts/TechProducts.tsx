@@ -53,15 +53,19 @@ function TechProducts() {
     return (
         <Container maxWidth="lg">
             <Grid container>
-                <Grid item xs={12}>
-                    <span className={`${blueText} ${title}`}>
-                        TECH
-                    </span>
-                    <span className={title}>
-                        PRODUCTS
-                    </span>
+                <Grid container item xs={12}>
+                    <Grid item>
+                        <span className={`${blueText} ${title}`}>
+                            TECH
+                        </span>
+                    </Grid>
+                    <Grid item>
+                        <span className={title}>
+                            PRODUCTS
+                        </span>
+                    </Grid>
                 </Grid>
-                <Grid container justifyContent="space-between" item xs={12} style={{ margin: '20px 0' }}>
+                <Grid container justifyContent="space-between" item xs={12} style={{ margin: '20px 0' }} spacing={2}>
                     <Grid item xs={12} sm={3}>
                         <OptionsCategories categories={categories} changeCategory={changeCategory} categoryFilter={categoryFilter} />
                     </Grid>

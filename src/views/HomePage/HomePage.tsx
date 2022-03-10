@@ -14,7 +14,8 @@ function HomePage() {
             <Header />
             {/*
             <TechZone />
-            <StepImages />*/}
+            */}
+            <StepImages />
             <TechProducts />
         </Provider>
     )
