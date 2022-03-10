@@ -15,15 +15,15 @@ function useCoins() {
       getUserData();
    }, []);
 
-   const buyProduct = (mount: number, id: string) => {
+   const buyProduct = (
+      mount: number,
+      id: string,
+      callback: (id: string) => void
+   ) => {
       setCoins(prev => prev - mount);
       claimProduct(id)
-         .then(res => {
-            console.log(res);
-         })
-         .catch(err => {
-            console.log(err);
-         });
+         .then(res => callback(id))
+         .catch(err => callback(""));
    };
 
    const addCoints = (mount: number) => {

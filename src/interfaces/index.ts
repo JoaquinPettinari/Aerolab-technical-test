@@ -1,7 +1,11 @@
 export interface HomePageContextProps {
    coins: number;
    addCoints: (mount: number) => void;
-   buyProduct: (mount: number, id: string) => void;
+   buyProduct: (
+      mount: number,
+      id: string,
+      callback: (id: string) => void
+   ) => void;
    name: string;
    isLoading: boolean;
    categories: string[];
@@ -13,6 +17,7 @@ export interface HomePageContextProps {
    changeOrder: (order: string) => void;
    changePage: (page: number) => void;
    sortedBy: string;
+   redeemProduct: (id: string) => void;
 }
 
 export interface Product {

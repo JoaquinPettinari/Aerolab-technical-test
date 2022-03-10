@@ -10,9 +10,9 @@ const { Provider } = HomePageContext;
 
 function HomePage() {
     const { coins, addCoints, buyProduct, name } = useCoins();
-    const { isLoading, categories, filteredProducts, categoryFilter, productsWithPagination, currentPage, changeCategory, changeOrder, changePage, sortedBy } = useProducts()
+    const { isLoading, categories, filteredProducts, categoryFilter, productsWithPagination, currentPage, changeCategory, changeOrder, changePage, sortedBy, redeemProduct } = useProducts()
     return (
-        <Provider value={{ coins, addCoints, buyProduct, name, isLoading, categories, filteredProducts, categoryFilter, productsWithPagination, currentPage, changeCategory, changeOrder, changePage, sortedBy }}>
+        <Provider value={{ coins, addCoints, buyProduct, name, isLoading, categories, filteredProducts, categoryFilter, productsWithPagination, currentPage, changeCategory, changeOrder, changePage, sortedBy, redeemProduct }}>
             <Header />
             <TechZone />
             <StepImages />

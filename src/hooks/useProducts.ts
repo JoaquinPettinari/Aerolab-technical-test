@@ -55,6 +55,11 @@ function useProducts() {
       }
    };
 
+   const redeemProduct = (id: string) => {
+      const newProductsList = products.filter(prod => prod._id !== id);
+      setProducts(newProductsList);
+   };
+
    const isSameCategory = (it: Product) =>
       it.category === categoryFilter || categoryFilter === "All products";
 
@@ -83,6 +88,7 @@ function useProducts() {
       changePage,
       isLoading,
       sortedBy,
+      redeemProduct,
    };
 }
 

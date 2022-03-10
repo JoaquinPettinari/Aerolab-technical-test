@@ -1,7 +1,6 @@
-import { Card, CardContent, CardMedia, CircularProgress, Container, Divider, Grid, Typography } from "@mui/material"
-import { useProducts } from "../../hooks/useProducts"
+import { CircularProgress, Container, Divider, Grid, Typography } from "@mui/material"
 import { Product } from "../../interfaces";
-import { ProductButton, Pagination, OptionsCategories } from "..";
+import { Pagination, OptionsCategories } from "..";
 import { OrderProducts } from "../OrderProducts/OrderProducts";
 import { makeStyles } from "@mui/styles";
 import GitHubIcon from '@mui/icons-material/GitHub';

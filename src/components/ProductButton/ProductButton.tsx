@@ -26,11 +26,11 @@ const useStyles = makeStyles({
 function ProductButton(props: ProductButtonProps) {
     const { cost, id } = props
     const { button, disabledButton, img } = useStyles()
-    const { coins, buyProduct } = useContext(HomePageContext)
+    const { coins, buyProduct, redeemProduct } = useContext(HomePageContext)
     const isDisabled = cost > coins
 
     const setPurchase = () => {
-        buyProduct(cost, id)
+        buyProduct(cost, id, redeemProduct)
     }
 
     return (
