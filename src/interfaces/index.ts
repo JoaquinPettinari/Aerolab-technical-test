@@ -1,7 +1,18 @@
 export interface HomePageContextProps {
    coins: number;
    addCoints: (mount: number) => void;
-   buyProduct: (mount: number) => void;
+   buyProduct: (mount: number, id: string) => void;
+   name: string;
+   isLoading: boolean;
+   categories: string[];
+   filteredProducts: Product[];
+   categoryFilter: string;
+   productsWithPagination: Product[];
+   currentPage: number;
+   changeCategory: (event: React.FormEvent<HTMLSelectElement>) => void;
+   changeOrder: (order: string) => void;
+   changePage: (page: number) => void;
+   sortedBy: string;
 }
 
 export interface Product {
@@ -9,6 +20,7 @@ export interface Product {
    cost: number;
    category: string;
    name: string;
+   _id: string;
 }
 export interface PaginationProps {
    currentPage: number;
@@ -24,11 +36,13 @@ export interface OptionsCategoriesProps {
 
 export interface ProductButtonProps {
    cost: number;
+   id: string;
 }
 
 export interface AerolabTextProps {
    children?: number | string;
    fontSize?: number;
+   fontWeight?: number | string;
    grayText?: boolean;
 }
 
@@ -37,6 +51,13 @@ export interface OrderProductsProps {
    sortedBy: string;
 }
 
+export interface AerolabButtonProps {
+   onClick: (value?: string | number) => void;
+   isSelected: boolean;
+   value: string | number;
+}
+
 export interface IconsButtonProp {
    coins: number;
+   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

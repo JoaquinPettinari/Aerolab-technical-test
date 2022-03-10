@@ -10,6 +10,7 @@ const defaultProduct = [
       cost: 0,
       category: "",
       name: "",
+      _id: "",
    },
 ];
 const pageSize = 8;

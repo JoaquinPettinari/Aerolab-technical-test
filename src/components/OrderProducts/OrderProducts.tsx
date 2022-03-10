@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { OrderProductsProps } from "../../interfaces";
+import { AerolabButton } from "../AerolabButton/AerolabButton";
 import { AerolabText } from "../AerolabText/AerolabText";
 
 const useStyles = makeStyles({
@@ -26,7 +27,6 @@ const HIGHEST_PRICE = 'Highest price'
 
 function OrderProducts(props: OrderProductsProps) {
     const { changeOrder, sortedBy } = props
-    const { button, normalButton, selectedButton } = useStyles()
     const orderButtons = [{ value: HIGHEST_PRICE }, { value: LOWER_PRICE }]
 
     return (
@@ -36,9 +36,11 @@ function OrderProducts(props: OrderProductsProps) {
             </Grid>
             {orderButtons.map(({ value }, index) => (
                 <Grid item key={index}>
-                    <button className={`${button} ${sortedBy === value ? selectedButton : normalButton}`} onClick={() => changeOrder(value)}>
-                        {sortedBy === value ? <span>{value}</span> : <AerolabText fontSize={13}>{value}</AerolabText>}
-                    </button>
+                    <AerolabButton
+                        onClick={() => changeOrder(value)}
+                        isSelected={sortedBy === value}
+                        value={value}
+                    />
                 </Grid>
             ))}
         </>

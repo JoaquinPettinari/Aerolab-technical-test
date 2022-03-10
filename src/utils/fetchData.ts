@@ -1,5 +1,6 @@
 import axios from "axios";
 
+const basicUrl = "https://coding-challenge-api.aerolab.co";
 const headers = {
    headers: {
       "Content-Type": "application/json",
@@ -10,11 +11,27 @@ const headers = {
 };
 
 export const getProducts = () => {
-   const url = "https://coding-challenge-api.aerolab.co/products";
+   const url = `${basicUrl}/products`;
    return axios.get(url, headers);
 };
 
 export const getUserInfo = () => {
-   const url = "https://coding-challenge-api.aerolab.co/user/me";
+   const url = `${basicUrl}/user/me`;
    return axios.get(url, headers);
+};
+
+export const setNewCoins = (amount: number) => {
+   const url = `${basicUrl}/user/points`;
+   const body = {
+      amount: amount,
+   };
+   return axios.post(url, body, headers);
+};
+
+export const claimProduct = (id: string) => {
+   const url = `${basicUrl}/redeem`;
+   const body = {
+      productId: id,
+   };
+   return axios.post(url, body, headers);
 };

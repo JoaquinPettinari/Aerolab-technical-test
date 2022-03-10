@@ -1,3 +1,6 @@
+export { CreditCard } from "./CreditCard/CreditCard";
+export { AerolabButton } from "./AerolabButton/AerolabButton";
+export { PopoverContent } from "./PopoverContent/PopoverContent";
 export { ProductCard } from "./ProductCard/ProductCard";
 export { OrderProducts } from "./OrderProducts/OrderProducts";
 export { OptionsCategories } from "./OptionsCategories/OptionsCategories";

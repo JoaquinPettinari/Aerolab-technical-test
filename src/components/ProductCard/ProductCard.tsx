@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 })
 
 function ProductCard(props: Product) {
-    const { img, name, category, cost } = props
+    const { img, name, category, cost, _id } = props
     const { nameStyle, categoryStyle, card } = useStyles()
     return (
         <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -42,7 +42,7 @@ function ProductCard(props: Product) {
                     </Typography>
                 </CardContent>
             </Card>
-            <ProductButton cost={cost} />
+            <ProductButton cost={cost} id={_id} />
         </Grid>
     )
 }

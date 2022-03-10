@@ -6,6 +6,8 @@ import { OrderProducts } from "../OrderProducts/OrderProducts";
 import { makeStyles } from "@mui/styles";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { ProductCard } from "../ProductCard/ProductCard";
+import { useContext } from "react";
+import { HomePageContext } from "../../views/HomePage/HomePage";
 
 function VerticalDivider() {
     return (
@@ -33,7 +35,7 @@ const useStyles = makeStyles({
 })
 
 function TechProducts() {
-    const { isLoading, categories, filteredProducts, categoryFilter, productsWithPagination, currentPage, changeCategory, changeOrder, changePage, sortedBy } = useProducts()
+    const { isLoading, categories, filteredProducts, categoryFilter, productsWithPagination, currentPage, changeCategory, changeOrder, changePage, sortedBy } = useContext(HomePageContext)
     const totalPages = Math.ceil(filteredProducts.length / 8)
     const { blueText, title, alignCenter, alignEnd } = useStyles();
 
@@ -80,11 +82,11 @@ function TechProducts() {
                 </Grid>
                 <Grid container item xs={12} spacing={3} justifyContent="center">
                     {productsWithPagination.map((product: Product, index) => (
-                        <ProductCard {...product} />
+                        <ProductCard {...product} key={index} />
                     ))}
                 </Grid>
                 <Grid container item alignItems='center' justifyContent='end' style={{ marginTop: '40px' }}>
-                    <Grid item xs={6} className={alignCenter}>
+                    <Grid item xs={12} sm={6} className={alignCenter}>
                         <Typography>
                             {productsWithPagination.length} of {filteredProducts.length} products
                         </Typography>

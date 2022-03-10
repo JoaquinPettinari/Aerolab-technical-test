@@ -10,7 +10,10 @@ const useStyles = makeStyles({
         backgroundColor: '#FFFFFF',
         border: '1px solid #DAE4F2',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        '&:hover': {
+            cursor: 'pointer'
+        }
     },
 });
 
@@ -18,7 +21,7 @@ const useStyles = makeStyles({
 function IconsButton(props: IconsButtonProp) {
     const { buttonStyle } = useStyles()
     return (
-        <button className={buttonStyle}>
+        <button className={buttonStyle} onClick={props.onClick}>
             <img src={KateIcon} alt="Icon" style={{ marginRight: '5px' }} />
             <AerolabText fontSize={16}>{props.coins}</AerolabText>
         </button>
