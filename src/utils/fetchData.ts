@@ -30,8 +30,6 @@ export const setNewCoins = (amount: number) => {
 
 export const claimProduct = (id: string) => {
    const url = `${basicUrl}/redeem/asdsadsa`;
-   const body = {
-      productId: id,
-   };
+   const body = { productId: id };
    return axios.post(url, body, headers);
 };
