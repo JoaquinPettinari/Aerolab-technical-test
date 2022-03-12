@@ -4,7 +4,6 @@ import { AerolabText } from "../AerolabText/AerolabText";
 
 const useStyles = makeStyles((theme: Theme) => ({
     container: {
-        background: '#FFFFFF',
         margin: '0 0 100px',
         minHeight: '400px',
         padding: '30px 0'
