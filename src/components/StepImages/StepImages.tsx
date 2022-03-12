@@ -1,6 +1,13 @@
 import { Card, CardContent, CardMedia, Grid, Theme, useMediaQuery } from "@mui/material";
 import { makeStyles, useTheme } from "@mui/styles";
 import { AerolabText } from "../AerolabText/AerolabText";
+import ImageCard1 from '/src/assets/walkthroug-1-desktop.png'
+import ImageCard2 from '/src/assets/walkthroug-2-desktop.png'
+import ImageCard3 from '/src/assets/walkthroug-3-desktop.png'
+import IconCard1 from "/src/assets/walkthrough-1.svg"
+import IconCard2 from "/src/assets/walkthrough-2.svg"
+import IconCard3 from "/src/assets/walkthrough-3.svg"
+
 
 const useStyles = makeStyles((theme: Theme) => ({
     container: {
@@ -74,28 +81,28 @@ function StepImages() {
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const cards = [
         {
-            image: "/src/assets/walkthroug-1-desktop.png",
+            image: ImageCard1,
             alt: "walkthroug-1-desktop.png",
             title: '1—BROWSE',
             subtitle: 'Browse our tech catalog with more than 20 top tech products',
             customStyle: firstCard,
-            icon: "/src/assets/walkthrough-1.svg"
+            icon: IconCard1
         },
         {
-            image: "/src/assets/walkthroug-2-desktop.png",
+            image: ImageCard2,
             alt: "walkthroug-2-desktop.png",
             title: '2—CHOOSE',
             subtitle: 'Exchange your hard earned AeroPoints for the item you want',
             customStyle: secondCard,
-            icon: "/src/assets/walkthrough-2.svg"
+            icon: IconCard2
         },
         {
-            image: "/src/assets/walkthroug-1-desktop.png",
+            image: ImageCard3,
             alt: "walkthroug-3-desktop.png",
             title: '3—ENJOY!',
             subtitle: 'All done, you can relax! We’ll take care of delivery of your tech item!',
             customStyle: thirdCard,
-            icon: "/src/assets/walkthrough-3.svg"
+            icon: IconCard3
         }
     ]
     return (

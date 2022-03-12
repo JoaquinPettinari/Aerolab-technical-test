@@ -52,7 +52,7 @@ function TechProducts() {
         )
     }
     return (
-        <Container maxWidth="lg" id="container-tech-products">
+        <Container maxWidth="lg" id="container-tech-products" style={{ marginTop: '20px' }}>
             <Grid container>
                 <Grid container item xs={12}>
                     <Grid item>
