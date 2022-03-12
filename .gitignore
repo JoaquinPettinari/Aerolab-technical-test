@@ -14,9 +14,11 @@ node_modules
 dist
 dist-ssr
 *.local
-# env 
+
+# dotenv environment variables file
 .env
-*.env
+.env.test
+.env.production
 
 # misc
 .env.local
