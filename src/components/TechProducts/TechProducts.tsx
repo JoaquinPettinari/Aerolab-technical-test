@@ -52,7 +52,7 @@ function TechProducts() {
         )
     }
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" id="container-tech-products">
             <Grid container>
                 <Grid container item xs={12}>
                     <Grid item>

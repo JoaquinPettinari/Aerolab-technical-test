@@ -1,6 +1,7 @@
 import { Container, Grid, Typography, useMediaQuery, Theme } from "@mui/material";
 import { makeStyles, useTheme } from "@mui/styles";
 import HeroImage from '../../assets/hero-desktop.png'
+import { AerolabButton } from "../AerolabButton/AerolabButton";
 import { AerolabText } from "../AerolabText/AerolabText";
 
 const useStyle = makeStyles((theme: Theme) => ({
@@ -8,18 +9,21 @@ const useStyle = makeStyles((theme: Theme) => ({
         width: '400px',
         height: '375px',
         zIndex: 1,
-        position: 'absolute',
         [theme.breakpoints.down('md')]: {
-            left: '50%',
-            bottom: '-285px',
-            transform: 'translate(-50%, -50%)'
+            marginBottom: '-40px'
         }
     },
     container: {
         minHeight: '400px',
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     background: {
-        position: 'relative',
+        aspectRatio: '10/8',
+        position: 'absolute',
+        bottom: '0',
         background: 'linear-gradient(102.47deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%)',
         boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.12)',
         borderRadius: '70px',
@@ -44,7 +48,7 @@ function TechZone() {
     return (
         <Container maxWidth="lg">
             <Grid container spacing={3} style={{ marginTop: '60px' }}>
-                <Grid container item justifyContent={!matches ? 'center' : 'flex-start'} xs={12} md={6} className={!matches ? alignText : ''}>
+                <Grid container item spacing={2} justifyContent={!matches ? 'center' : 'flex-start'} xs={12} md={6} className={!matches ? alignText : ''}>
                     <Grid item xs={12}>
                         <AerolabText fontSize={13} fontWeight={600} grayText>EXPLORE THE</AerolabText>
                     </Grid>
@@ -58,6 +62,14 @@ function TechZone() {
                     </Grid>
                     <Grid item xs={10} sm={7}>
                         <AerolabText fontSize={15} grayText>Here you’ll be able to redeem all of your hard-earned Aeropoints and exchange them for cool tech.</AerolabText>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <AerolabButton
+                            onClick={() => document.getElementById('container-tech-products')?.scrollIntoView({ behavior: 'smooth' })}
+                            value='VIEW ALL PRODUCTS'
+                            isSelected
+                        />
+
                     </Grid>
                 </Grid>
                 <Grid container item xs={12} md={6} alignContent="flex-end" className={container}>

@@ -102,7 +102,7 @@ function useProducts() {
          compose(
             take(pageSize),
             drop(pageSize * (currentPage - 1))
-         )(filteredProducts),
+         )(filteredProducts) as Product[],
       [pageSize, currentPage, filteredProducts]
    );
 

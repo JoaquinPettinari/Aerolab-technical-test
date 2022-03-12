@@ -5,7 +5,7 @@ const headers = {
    headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      //Authorization: `Bearer ${process.env.TOKEN}`,
+      //Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
       Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI5Mjc2YWE5ZWY3ODAwMWFlODdkYjAiLCJpYXQiOjE2NDY4NjQyMzR9.rwQbd6l4u6ziX_qJU0NGhNAI2nwnzYNnbGfWTYud2Hg`,
    },
 };
