@@ -75,6 +75,7 @@ export interface AerolabButtonProps {
 export interface IconsButtonProp {
    coins: number;
    onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+   open: boolean;
 }
 
 export interface SnackerDataProps {

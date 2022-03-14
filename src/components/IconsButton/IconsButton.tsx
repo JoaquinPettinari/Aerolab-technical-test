@@ -2,6 +2,8 @@ import { makeStyles } from '@mui/styles'
 import KateIcon from '../../assets/aeropay-1.svg'
 import { AerolabText } from '..';
 import { IconsButtonProp } from '../../interfaces';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const useStyles = makeStyles({
     buttonStyle: {
@@ -24,6 +26,9 @@ function IconsButton(props: IconsButtonProp) {
         <button className={buttonStyle} onClick={props.onClick}>
             <img src={KateIcon} alt="Icon" style={{ marginRight: '5px' }} />
             <AerolabText fontSize={16}>{props.coins}</AerolabText>
+            {props.open
+                ? <KeyboardArrowUpIcon color="disabled" />
+                : <KeyboardArrowDownIcon color="disabled" />}
         </button>
     )
 }

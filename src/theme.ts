@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { green, purple } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 
 const theme = createTheme({
    palette: {
@@ -7,7 +7,7 @@ const theme = createTheme({
          main: green[500],
       },
       secondary: {
-         main: green[500],
+         main: "#8FA3BF",
       },
       background: {
          default: "linear-gradient(to right, tomato, cyan)",
