@@ -1,5 +1,5 @@
 import { Divider, Grid } from "@mui/material";
-import { useContext, useState } from "react";
+import { MouseEvent, useContext, useState } from "react";
 import { HomePageContext } from "../../views/HomePage/HomePage";
 import { AerolabButton } from "../AerolabButton/AerolabButton";
 import { CreditCard } from "../CreditCard/CreditCard";
@@ -11,8 +11,8 @@ function PopoverContent() {
         setSelectedValue(value)
     }
 
-    const buyCoins = (value: number) => {
-        addCoints(value)
+    const buyCoins = (event: MouseEvent<HTMLButtonElement>) => {
+        addCoints(Number(event.currentTarget.value))
     }
 
     return (
@@ -33,15 +33,16 @@ function PopoverContent() {
                             onClick={() => onChangeSelectedValue(value)}
                             isSelected={selectedValue === value}
                             value={value}
-                        />
+                        >{value}
+                        </AerolabButton>
                     </Grid>
                 ))}
                 <Grid item xs={12}>
                     <AerolabButton
-                        onClick={() => buyCoins(selectedValue)}
+                        onClick={buyCoins}
                         isSelected
-                        value={"Add points"}
-                    />
+                        value={selectedValue}
+                    >Add points</AerolabButton>
                 </Grid>
             </Grid>
         </Grid>

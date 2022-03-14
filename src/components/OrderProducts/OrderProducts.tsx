@@ -37,10 +37,10 @@ function OrderProducts(props: OrderProductsProps) {
             {orderButtons.map(({ value }, index) => (
                 <Grid item key={index}>
                     <AerolabButton
-                        onClick={() => changeOrder(value)}
+                        onClick={changeOrder}
                         isSelected={sortedBy === value}
                         value={value}
-                    />
+                    >{value}</AerolabButton>
                 </Grid>
             ))}
         </>
