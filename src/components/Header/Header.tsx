@@ -26,7 +26,7 @@ function Header() {
                     <img src={AerolabIcon} alt="Aerolab icon" />
                 </Grid>
                 <Grid item>
-                    <IconsButton coins={coins} onClick={handleClick} />
+                    <IconsButton coins={coins} onClick={handleClick} open={open} />
                 </Grid>
                 <Popover
                     open={open}

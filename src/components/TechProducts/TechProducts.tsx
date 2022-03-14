@@ -30,13 +30,19 @@ const useStyles = makeStyles({
     },
     alignEnd: {
         textAlign: 'end'
-    }
+    },
+    products: {
+        background: '-webkit-linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)',
+        textFillColor: 'transparent',
+        '-webkit-background-clip': 'text',
+        '-webkit-text-fill-color': 'transparent'
+    },
 })
 
 function TechProducts() {
     const { isLoading, categories, filteredProducts, categoryFilter, productsWithPagination, currentPage, changeCategory, changeOrder, changePage, sortedBy } = useContext(HomePageContext)
     const totalPages = Math.ceil(filteredProducts.length / 8)
-    const { blueText, title, alignCenter, alignEnd } = useStyles();
+    const { blueText, title, alignCenter, alignEnd, products } = useStyles();
 
     const goToRepo = () => {
         window.open('https://github.com/JoaquinPettinari/Aerolab-technical-test', '_blank')
@@ -86,7 +92,7 @@ function TechProducts() {
                 </Grid>
                 <Grid container item alignItems='center' justifyContent='end' style={{ marginTop: '40px' }}>
                     <Grid item xs={12} sm={6} className={alignCenter}>
-                        <Typography>
+                        <Typography className={products}>
                             {productsWithPagination.length} of {filteredProducts.length} products
                         </Typography>
                     </Grid>
