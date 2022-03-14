@@ -19,7 +19,6 @@ function HomePage() {
                 background: `url(${Wave})`,
                 backgroundRepeat: 'repeat',
                 backgroundSize: '20%',
-
             }}>
                 <TechZone />
                 <StepImages />

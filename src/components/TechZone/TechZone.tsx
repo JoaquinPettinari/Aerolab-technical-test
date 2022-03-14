@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from "@mui/styles";
 import HeroImage from '../../assets/hero-desktop.png'
 import { AerolabButton } from "../AerolabButton/AerolabButton";
 import { AerolabText } from "../AerolabText/AerolabText";
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const useStyle = makeStyles((theme: Theme) => ({
     image: {
@@ -66,9 +67,10 @@ function TechZone() {
                     <Grid item xs={6}>
                         <AerolabButton
                             onClick={() => document.getElementById('container-tech-products')?.scrollIntoView({ behavior: 'smooth' })}
-                            value='VIEW ALL PRODUCTS'
                             isSelected
-                        />
+                        >
+                            VIEW ALL PRODUCTS <ArrowDownwardIcon />
+                        </AerolabButton>
 
                     </Grid>
                 </Grid>

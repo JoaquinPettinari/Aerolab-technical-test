@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import { MouseEvent, ReactNode, useEffect, useMemo, useState } from "react";
 import { getProducts } from "../utils/fetchData";
 import {
    uniq,
@@ -47,8 +47,8 @@ function useProducts() {
       });
    }, []);
 
-   const changeOrder = (order: string) => {
-      setSortedBy(order);
+   const changeOrder = (event: MouseEvent<HTMLButtonElement>) => {
+      setSortedBy(event.currentTarget.value);
    };
 
    const changePage = (newPage: number) => {

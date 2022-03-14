@@ -10,7 +10,10 @@ const useStyles = makeStyles({
         width: '100%',
         border: '0',
         cursor: 'pointer',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     selectedButton: {
         background: 'linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)',
@@ -23,12 +26,12 @@ const useStyles = makeStyles({
 });
 
 function AerolabButton(props: AerolabButtonProps) {
-    const { onClick, isSelected, value } = props
+    const { onClick, isSelected, children, value } = props
     const { button, normalButton, selectedButton } = useStyles()
 
     return (
-        <button className={`${button} ${isSelected ? selectedButton : normalButton}`} onClick={() => onClick(value)}>
-            {isSelected ? <span>{value}</span> : <AerolabText fontSize={13}>{value}</AerolabText>}
+        <button className={`${button} ${isSelected ? selectedButton : normalButton}`} onClick={onClick} value={value}>
+            {children}
         </button>
     )
 }

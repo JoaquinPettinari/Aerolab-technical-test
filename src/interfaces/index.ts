@@ -1,3 +1,5 @@
+import { FormEvent, MouseEvent, ReactNode, SyntheticEvent } from "react";
+
 export interface HomePageContextProps {
    coins: number;
    addCoints: (mount: number) => void;
@@ -14,13 +16,13 @@ export interface HomePageContextProps {
    categoryFilter: string;
    productsWithPagination: Product[];
    currentPage: number;
-   changeCategory: (event: React.FormEvent<HTMLSelectElement>) => void;
-   changeOrder: (order: string) => void;
+   changeCategory: (event: FormEvent<HTMLSelectElement>) => void;
+   changeOrder: (event: MouseEvent<HTMLButtonElement>) => void;
    changePage: (page: number) => void;
    sortedBy: string;
    redeemProduct: (id: string, name: string) => void;
    handleCloseSnacker: (
-      event?: React.SyntheticEvent | Event,
+      event?: SyntheticEvent | Event,
       reason?: string
    ) => void;
    snackerData: SnackerDataProps;
@@ -40,7 +42,7 @@ export interface PaginationProps {
 }
 
 export interface OptionsCategoriesProps {
-   changeCategory: (event: React.FormEvent<HTMLSelectElement>) => void;
+   changeCategory: (event: FormEvent<HTMLSelectElement>) => void;
    categories: string[];
    categoryFilter: string;
 }
@@ -59,19 +61,20 @@ export interface AerolabTextProps {
 }
 
 export interface OrderProductsProps {
-   changeOrder: (order: string) => void;
+   changeOrder: (event: MouseEvent<HTMLButtonElement>) => void;
    sortedBy: string;
 }
 
 export interface AerolabButtonProps {
-   onClick: (value?: string | number) => void;
+   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
    isSelected: boolean;
-   value: string | number;
+   value?: string | number;
+   children: string | number | ReactNode;
 }
 
 export interface IconsButtonProp {
    coins: number;
-   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface SnackerDataProps {
